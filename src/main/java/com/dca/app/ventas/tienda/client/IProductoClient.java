@@ -1,9 +1,8 @@
 package com.dca.app.ventas.tienda.client;
 
-import com.dca.app.ventas.tienda.exception.exceptions.MasterResourceFieldAlreadyExistException;
-import com.dca.app.ventas.tienda.exception.exceptions.MasterResourceNotFoundException;
+
 import com.dca.crud.tienda.commons.models.entity.Producto;
-import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

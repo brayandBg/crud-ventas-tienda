@@ -16,13 +16,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
 public class VentaRestController{
 
     @Autowired
     private IVentaService sendSer;
 
-    @Autowired
-    private IProductoClient prodFeign;
 
     @GetMapping("/listar")
     @ApiOperation(value = "Retorna lista de Ventas", notes = "<br>Retorna una lista con todas las Venta registradas en la BD"
@@ -84,7 +83,6 @@ public class VentaRestController{
             @ApiResponse(code = 500, message = "Error del sistema")
     })
     public Venta save(@RequestBody Venta v) throws MasterResourceFieldAlreadyExistException, MasterResourceNotFoundException {
-        v.setPrecio(prodFeign.findById(v.getIdProduct()).getPrecio()*v.getCantProd());
         return sendSer.save(v);
     }
 
